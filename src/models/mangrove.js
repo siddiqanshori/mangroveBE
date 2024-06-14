@@ -9,7 +9,7 @@ const saltRounds = 10;
 const jwtSecret = 'SECRET';
 
 const getAllDonate = () => {
-    const SQLQuery = 'SELECT id, jumlah, nama, pesan, createdAt FROM pohon';
+    const SQLQuery = 'SELECT id, jumlah, nama, pesan, createdAt FROM donasi';
 
     return dbPool.execute(SQLQuery);
 }
@@ -20,7 +20,7 @@ const createDonate = async (body) => {
     const donateId = nanoid(16);
     const createdAt = moment().tz("Asia/Jakarta").format('YYYY-MM-DD HH:mm:ss'); 
 
-    const SQLQuery = `INSERT INTO pohon (id, jumlah, nama, pesan, createdAt) 
+    const SQLQuery = `INSERT INTO donasi (id, jumlah, nama, pesan, createdAt) 
                       VALUES (?, ?, ?, ?, ?)`;
     const values = [donateId, jumlah, nama, pesan, createdAt];
 
@@ -30,29 +30,29 @@ const createDonate = async (body) => {
 }
 
 
-const getAllComment = () => {
-    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM comment';
+const getAllInformasi = () => {
+    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM Informasi';
     
     return dbPool.execute(SQLQuery);
 }
 
-const createComment = async (body) => {
+const createInformasi = async (body) => {
     const { nama, provinsi, kota, detail } = body;
-    const commentId = nanoid(16);
+    const InformasiId = nanoid(16);
     const createdAt = moment().tz("Asia/Jakarta").format('YYYY-MM-DD HH:mm:ss');
 
-    const SQLQuery = `INSERT INTO comment (id, nama, provinsi, kota, detail, createdAt) 
+    const SQLQuery = `INSERT INTO Informasi (id, nama, provinsi, kota, detail, createdAt) 
                       VALUES (?, ?, ?, ?, ?, ?)`;
-    const values = [commentId, nama, provinsi, kota, detail, createdAt];
+    const values = [InformasiId, nama, provinsi, kota, detail, createdAt];
 
     await dbPool.execute(SQLQuery, values);
 
-    return { commentId, createdAt };
+    return { InformasiId, createdAt };
 }
 
 
-const deleteComment = async (id) => {
-    const SQLQuery = 'DELETE FROM comment WHERE id =?';
+const deleteInformasi = async (id) => {
+    const SQLQuery = 'DELETE FROM Informasi WHERE id =?';
     const [result] = await dbPool.execute(SQLQuery, [id]);
 
     if (result.affectedRows === 0) {
@@ -79,7 +79,7 @@ const deleteComment = async (id) => {
 module.exports = {
     getAllDonate,
     createDonate,
-    createComment,
-    deleteComment,
-    getAllComment
+    createInformasi,
+    deleteInformasi,
+    getAllInformasi
 }

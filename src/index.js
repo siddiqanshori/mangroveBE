@@ -60,20 +60,20 @@ app.get('/getAllDonate', express.json(), async (req, res, next) => {
     }
 });
 
-app.post('/createComment', async (req, res, next) => {
+app.post('/createInformasi', async (req, res, next) => {
     try {
-        const dataComment = {
+        const dataInformasi = {
             nama: req.body.nama,
             provinsi: req.body.provinsi,
             kota: req.body.kota,
             detail: req.body.detail,
         };
-        console.log(dataComment);
-        if (!dataComment.nama || !dataComment.provinsi || !dataComment.kota || !dataComment.detail ) {
+        console.log(dataInformasi);
+        if (!dataInformasi.nama || !dataInformasi.provinsi || !dataInformasi.kota || !dataInformasi.detail ) {
             throw new Error('Semua Kolom Wajib Di Isi!!!');
         }
 
-        const { createdAt } = await mangroveModel.createComment(dataComment);
+        const { createdAt } = await mangroveModel.createInformasi(dataInformasi);
 
         res.status(201).json({
             status: '200',
@@ -85,10 +85,10 @@ app.post('/createComment', async (req, res, next) => {
     }
 });
 
-app.delete('/deleteComment', async (req, res, next) => {
+app.delete('/deleteInformasi', async (req, res, next) => {
     try {
         const id = req.body.id;
-        await mangroveModel.deleteComment(id);
+        await mangroveModel.deleteInformasi(id);
         res.status(200).json({ 
             status: 200,
             message: 'Berhasil Menghapus Data Informasi'
@@ -100,13 +100,13 @@ app.delete('/deleteComment', async (req, res, next) => {
 
 
 
-app.get('/getAllComment', express.json(), async (req, res, next) => {
+app.get('/getAllInformasi', express.json(), async (req, res, next) => {
     try {
-        const [mangrove] = await mangroveModel.getAllComment();
+        const [mangrove] = await mangroveModel.getAllInformasi();
         res.status(200).json({
             status: 200,
             message: 'Berhasil Mengambil Data Informasi',
-            comment: mangrove,
+            Informasi: mangrove,
         });
     } catch (error) {
         next(error);
