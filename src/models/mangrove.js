@@ -31,7 +31,7 @@ const createDonate = async (body) => {
 
 
 const getAllInformasi = () => {
-    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM Informasi';
+    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM Informasi ORDER BY createdAt DESC';
     
     return dbPool.execute(SQLQuery);
 }
