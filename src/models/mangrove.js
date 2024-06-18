@@ -9,20 +9,20 @@ const saltRounds = 10;
 const jwtSecret = 'SECRET';
 
 const getAllDonate = () => {
-    const SQLQuery = 'SELECT id, jumlah, nama, pesan, createdAt FROM donasi';
+    const SQLQuery = 'SELECT id, jumlah, uang_donasi, nama, pesan, createdAt FROM donasi';
 
     return dbPool.execute(SQLQuery);
 }
 
 
 const createDonate = async (body) => {
-    const { jumlah, nama, pesan } = body;
+    const { jumlah, uang_donasi, nama, pesan } = body;
     const donateId = nanoid(16);
     const createdAt = moment().tz("Asia/Jakarta").format('YYYY-MM-DD HH:mm:ss'); 
 
-    const SQLQuery = `INSERT INTO donasi (id, jumlah, nama, pesan, createdAt) 
-                      VALUES (?, ?, ?, ?, ?)`;
-    const values = [donateId, jumlah, nama, pesan, createdAt];
+    const SQLQuery = `INSERT INTO donasi (id, jumlah, uang_donasi, nama, pesan, createdAt) 
+                      VALUES (?, ?, ?, ?, ?, ?)`;
+    const values = [donateId, jumlah, uang_donasi, nama, pesan, createdAt];
 
     await dbPool.execute(SQLQuery, values);
 

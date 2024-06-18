@@ -27,11 +27,12 @@ app.post('/createDonate', async (req, res, next) => {
     try {
         const dataDonate = {
             jumlah: req.body.jumlah,
+            uang_donasi: req.body.uang_donasi,
             nama: req.body.nama,
             pesan: req.body.pesan,
         };
         console.log(dataDonate);
-        if (!dataDonate.jumlah || !dataDonate.nama || !dataDonate.pesan ) {
+        if (!dataDonate.jumlah || !dataDonate.uang_donasi || !dataDonate.nama || !dataDonate.pesan ) {
             throw new Error('Semua Kolom Wajib Di Isi!!!');
         }
         
