@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2024 at 03:24 AM
+-- Generation Time: Jun 18, 2024 at 04:53 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -51,6 +51,7 @@ INSERT INTO `admin` (`id`, `name`, `email`, `password`) VALUES
 CREATE TABLE `donasi` (
   `id` varchar(100) NOT NULL,
   `jumlah` varchar(100) NOT NULL,
+  `uang_donasi` varchar(100) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `pesan` varchar(100) NOT NULL,
   `createdAt` varchar(100) NOT NULL
@@ -60,12 +61,11 @@ CREATE TABLE `donasi` (
 -- Dumping data for table `donasi`
 --
 
-INSERT INTO `donasi` (`id`, `jumlah`, `nama`, `pesan`, `createdAt`) VALUES
-('MSrgCg0WOHHPg-lC', '50', 'Kelompok 4', 'semoga donasi ini bermanfaat', '2024-06-14 15:43:28'),
-('3naGjh5PdqyaqP2j', '50', 'Kelompok 4 ', 'semoga dari donasi ini, banyak orang akan mendapatkan manfaatnya, terimakasih kelompok 4', '2024-06-15 07:45:20'),
-('STaRc2UyVUoACMCu', '50', 'Siddiq', 'Semoga semakin banyak orang menyadari betapa pentingnya untuk peduli terhadap mangrove. Mangrove buk', '2024-06-15 07:49:40'),
-('iBevx918DCbBblfb', '10', 'Anonim', 'Saya yakin menjaga mangrove penting untuk masa depan bumi kita. Selain sebagai penyangga pantai dan ', '2024-06-15 07:53:02'),
-('g794vDTQvUX325Ia', '50', 'siddiq coba lagi', 'ini komentar apa aja coba doang', '2024-06-15 08:15:52');
+INSERT INTO `donasi` (`id`, `jumlah`, `uang_donasi`, `nama`, `pesan`, `createdAt`) VALUES
+('leotLZW0Es80r85R', '1', '7000', 'Siddiq 1', 'siddiq tes 1 pohon harga 7000', '2024-06-18 21:49:56'),
+('94YtSdfRGeer8ABB', '5', '30000', 'siddiq 2', 'siddiq tes 5 pohon harga 30k', '2024-06-18 21:50:32'),
+('-hp9CCq6QCh-5Ucd', '10', '50000', 'Masyarakat #Peduli', 'siddiq tes 10 pohon 50k', '2024-06-18 21:51:30'),
+('T3tJI06QmzB5TgMJ', '50', '300000', 'siddiq', 'tes 50 pohon 300k', '2024-06-18 21:52:24');
 
 -- --------------------------------------------------------
 
