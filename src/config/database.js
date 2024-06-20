@@ -1,9 +1,9 @@
 const mysql = require('mysql2');
 
 const dbPool = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "",
+    host: "http://mangrovedb.clskmyko4wwn.ap-southeast-2.rds.amazonaws.com",
+    user: "mangrove",
+    password: "Kamu_bohong<>?0!!",
     database: "mangrove",
 });
 
