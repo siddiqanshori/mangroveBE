@@ -31,7 +31,7 @@ const createDonate = async (body) => {
 
 
 const getAllInformasi = () => {
-    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM Informasi';
+    const SQLQuery = 'SELECT id, nama, provinsi, kota, detail, createdAt FROM informasi';
     
     return dbPool.execute(SQLQuery);
 }
@@ -41,7 +41,7 @@ const createInformasi = async (body) => {
     const InformasiId = nanoid(16);
     const createdAt = moment().tz("Asia/Jakarta").format('YYYY-MM-DD HH:mm:ss');
 
-    const SQLQuery = `INSERT INTO Informasi (id, nama, provinsi, kota, detail, createdAt) 
+    const SQLQuery = `INSERT INTO informasi (id, nama, provinsi, kota, detail, createdAt) 
                       VALUES (?, ?, ?, ?, ?, ?)`;
     const values = [InformasiId, nama, provinsi, kota, detail, createdAt];
 
@@ -52,7 +52,7 @@ const createInformasi = async (body) => {
 
 
 const deleteInformasi = async (id) => {
-    const SQLQuery = 'DELETE FROM Informasi WHERE id =?';
+    const SQLQuery = 'DELETE FROM informasi WHERE id =?';
     const [result] = await dbPool.execute(SQLQuery, [id]);
 
     if (result.affectedRows === 0) {
