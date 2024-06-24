@@ -10,6 +10,19 @@ const dbPool = mysql.createPool({
 module.exports = dbPool.promise();
 
 
+//=============== Lokal================================
+
+// const mysql = require('mysql2');
+
+// const dbPool = mysql.createPool({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "mangrove",
+// });
+
+// module.exports = dbPool.promise();
+
 
 // const {Pool} = require('pg');
 
